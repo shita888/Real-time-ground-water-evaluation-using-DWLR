@@ -1,6 +1,6 @@
 
 
-# JalStar — Groundwater Level Forecasting (Smart India Hackathon 2025)
+# JalStar — Groundwater Level Forecasting
 
 
 JalStar is a Smart India Hackathon project focused on **real-time groundwater monitoring, forecasting, and alerts** using DWLR (Digital Water Level Recorder) style data pipelines.
