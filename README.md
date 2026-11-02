@@ -4,31 +4,6 @@ JalDrishti is a Smart India Hackathon project focused on **groundwater monitorin
 
 The platform provides groundwater insights for Madhya Pradesh through interactive dashboards, station-level visualizations, district-wise analysis, and machine learning-based forecasting. It aims to support researchers, planners, and communities in making informed decisions for sustainable groundwater management.
 
-## Screenshots
-
-### Home Page
-The home page provides an overview of groundwater monitoring, key features, and station statistics.
-
-### Dashboard
-The dashboard displays groundwater statistics, nearby monitoring stations, historical groundwater levels, forecasts, and recent station updates.
-
-### Groundwater Station Map
-The interactive map visualizes DWLR monitoring stations across Madhya Pradesh with filters for different groundwater conditions.
-
-### User Authentication
-JalDrishti provides account creation and secure sign-in interfaces for users.
-
-### Alert Subscription
-Users can subscribe to groundwater alerts using their preferred notification channel.
-
-## Smart India Hackathon Context
-
-- SIH project: **JalDrishti — Groundwater Monitoring and Forecasting**
-- Focus: Real-time groundwater resource evaluation using DWLR data
-- Geographic scope: Madhya Pradesh, India
-- Objective: Support sustainable groundwater resource management
-- Application: Web-based groundwater monitoring and decision-support platform
-
 ## Core Features
 
 - **Groundwater Monitoring:** Monitor groundwater levels across DWLR stations.
