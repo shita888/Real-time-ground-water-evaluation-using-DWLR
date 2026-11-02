@@ -1,0 +1,6 @@
+# Ignore environment variables
+.env
+
+# Node.js stuff
+node_modules/
+dist/

@@ -1,0 +1,564 @@
+/* home.css - Exact styling from index(1).html */
+.jaldrishti-home {
+  --navy: #0b2a5b;
+  --ink: #14284b;
+  --muted: #51627f;
+  --blue: #1f6fb2;
+  --blue-soft: #e8f1fa;
+  --green: #1e8e6a;
+  --green-soft: #e6f4ee;
+  --line: #dce3ee;
+  --bg: #ffffff;
+  --panel: #f7f9fc;
+  --radius: 10px;
+  --wrap: 1160px;
+  
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.jaldrishti-home * {
+  box-sizing: border-box;
+}
+
+.jaldrishti-home a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.jaldrishti-home .wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.jaldrishti-home svg {
+  display: block;
+}
+
+.jaldrishti-home :focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* header */
+.jaldrishti-home .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+
+.jaldrishti-home .bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 68px;
+  flex-wrap: nowrap;
+}
+
+.jaldrishti-home .brand {
+  display: block;
+  line-height: 1.1;
+  flex-shrink: 0;
+}
+
+.jaldrishti-home .brand b {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.3px;
+}
+
+.jaldrishti-home .brand b span {
+  color: var(--blue);
+}
+
+.jaldrishti-home .brand small {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.jaldrishti-home .nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.jaldrishti-home .nav a {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: background 0.15s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+
+.jaldrishti-home .nav a:hover {
+  background: var(--panel);
+}
+
+.jaldrishti-home .nav a.active {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.jaldrishti-home .search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0 14px;
+  height: 40px;
+  width: 220px;
+  min-width: 140px;
+  background: #fff;
+  flex-shrink: 1;
+}
+
+.jaldrishti-home .search input {
+  border: 0;
+  outline: 0;
+  font: inherit;
+  font-size: 14px;
+  width: 100%;
+  color: var(--ink);
+  background: transparent;
+}
+
+.jaldrishti-home .search:focus-within {
+  border-color: var(--blue);
+}
+
+.jaldrishti-home .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 8px;
+  padding: 12px 22px;
+  border: 1px solid var(--navy);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.jaldrishti-home .btn-primary {
+  background: var(--navy);
+  color: #fff;
+}
+
+.jaldrishti-home .btn-primary:hover {
+  background: #08214a;
+}
+
+.jaldrishti-home .btn-outline {
+  background: #fff;
+  color: var(--navy);
+}
+
+.jaldrishti-home .btn-outline:hover {
+  background: var(--blue-soft);
+}
+
+.jaldrishti-home .login {
+  padding: 10px 18px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.jaldrishti-home .menu-btn {
+  display: none;
+  margin-left: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  color: var(--navy);
+}
+
+/* hero */
+.jaldrishti-home .hero {
+  padding: 44px 0 36px;
+}
+
+.jaldrishti-home .hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.jaldrishti-home .hero h1 {
+  font-size: 44px;
+  line-height: 1.12;
+  margin: 0 0 16px;
+  color: var(--navy);
+  letter-spacing: -0.8px;
+}
+
+.jaldrishti-home .hero p {
+  font-size: 18px;
+  color: var(--muted);
+  margin: 0 0 26px;
+  max-width: 540px;
+}
+
+.jaldrishti-home .cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.jaldrishti-home .hero-img {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  aspect-ratio: 16/10;
+  background: #dcebf6;
+}
+
+.jaldrishti-home .hero-img img,
+.jaldrishti-home .hero-img svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* stats */
+.jaldrishti-home .stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.jaldrishti-home .stat {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 22px;
+}
+
+.jaldrishti-home .stat + .stat {
+  border-left: 1px solid var(--line);
+}
+
+.jaldrishti-home .ico {
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.jaldrishti-home .ico svg {
+  width: 26px;
+  height: 26px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.jaldrishti-home .ico.blue {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.jaldrishti-home .ico.green {
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.jaldrishti-home .stat strong {
+  display: block;
+  font-size: 20px;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.jaldrishti-home .stat span {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* sections */
+.jaldrishti-home section {
+  padding: 44px 0 0;
+}
+
+.jaldrishti-home h2 {
+  font-size: 26px;
+  margin: 0 0 6px;
+  color: var(--navy);
+  letter-spacing: -0.3px;
+}
+
+.jaldrishti-home .sub {
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.jaldrishti-home .cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.jaldrishti-home .card {
+  display: flex;
+  gap: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  background: #fff;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.jaldrishti-home a.card:hover {
+  border-color: #b9c9de;
+  box-shadow: 0 2px 8px rgba(11, 42, 91, 0.07);
+}
+
+.jaldrishti-home .card h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+  color: var(--navy);
+}
+
+.jaldrishti-home .card p {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--muted);
+}
+
+/* map */
+.jaldrishti-home .explore {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.jaldrishti-home #map {
+  min-height: 380px;
+  height: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #eef3ee;
+  z-index: 1;
+}
+
+.jaldrishti-home .map-fallback {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 24px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.jaldrishti-home .panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.jaldrishti-home .panel h3 {
+  margin: 0 0 8px;
+  font-size: 21px;
+  color: var(--navy);
+}
+
+.jaldrishti-home .panel p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.jaldrishti-home .panel dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+  font-size: 14.5px;
+}
+
+.jaldrishti-home .panel dt {
+  color: var(--muted);
+}
+
+.jaldrishti-home .panel dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--navy);
+  text-align: right;
+}
+
+.jaldrishti-home .panel .btn {
+  margin-top: auto;
+  padding-top: 12px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* footer */
+.jaldrishti-home footer {
+  margin-top: 56px;
+  border-top: 1px solid var(--line);
+  padding: 24px 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.jaldrishti-home .foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: space-between;
+}
+
+.jaldrishti-home .foot nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.jaldrishti-home .foot a:hover {
+  color: var(--blue);
+}
+
+/* responsive */
+@media (max-width: 1100px) {
+  .jaldrishti-home .bar {
+    gap: 12px;
+  }
+  .jaldrishti-home .search {
+    width: 180px;
+    padding: 0 10px;
+  }
+  .jaldrishti-home .nav a {
+    padding: 7px 9px;
+    font-size: 14px;
+  }
+  .jaldrishti-home .brand small {
+    display: none;
+  }
+  .jaldrishti-home .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .jaldrishti-home .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .jaldrishti-home .stat:nth-child(3) {
+    border-left: 0;
+  }
+  .jaldrishti-home .stat:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 900px) {
+  .jaldrishti-home .menu-btn {
+    display: grid;
+    place-items: center;
+  }
+  .jaldrishti-home .nav,
+  .jaldrishti-home .search,
+  .jaldrishti-home .login {
+    display: none;
+  }
+  .jaldrishti-home .site-header.open .bar {
+    flex-wrap: wrap;
+    padding-bottom: 14px;
+  }
+  .jaldrishti-home .site-header.open .nav {
+    display: flex;
+    flex-direction: column;
+    order: 3;
+    width: 100%;
+    margin: 0;
+  }
+  .jaldrishti-home .site-header.open .search {
+    display: flex;
+    order: 4;
+    width: 100%;
+  }
+  .jaldrishti-home .site-header.open .login {
+    display: inline-flex;
+    order: 5;
+    justify-content: center;
+    width: 100%;
+  }
+  .jaldrishti-home .hero-grid,
+  .jaldrishti-home .explore {
+    grid-template-columns: 1fr;
+  }
+  .jaldrishti-home .hero h1 {
+    font-size: 34px;
+  }
+  .jaldrishti-home .hero-img {
+    order: -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .jaldrishti-home .cards,
+  .jaldrishti-home .stats {
+    grid-template-columns: 1fr;
+  }
+  .jaldrishti-home .stat + .stat {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .jaldrishti-home .hero {
+    padding-top: 24px;
+  }
+  .jaldrishti-home .hero h1 {
+    font-size: 29px;
+  }
+  .jaldrishti-home .hero p {
+    font-size: 16px;
+  }
+  .jaldrishti-home .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .jaldrishti-home #map {
+    min-height: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jaldrishti-home * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

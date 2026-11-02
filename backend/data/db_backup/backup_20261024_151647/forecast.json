@@ -1,0 +1,5 @@
+[
+{"_id": {"$oid": "6adc1539f23e9e768a7b76eb"}, "station_id": "DWLR_001", "forecast": {"station_id": "DWLR_001", "predictions": [5.55, 5.91, 6.5, 6.31, 6.24, 6.57, 7.25], "mean_category": "Semi-critical", "trend": "\u26a0\ufe0f Declining (Depletion)", "n_future": 7, "lookback": 15, "latest_level": 5.2}},
+{"_id": {"$oid": "6adc1770f23e9e768a7b76ec"}, "station_id": "MP_DHAR_BAGH_BAGH_1", "forecast": {"station_id": "MP_DHAR_BAGH_BAGH_1", "predictions": [5.95, 5.37, 5.47, 5.81, 6.32, 5.89, 5.99], "mean_category": "Semi-critical", "trend": "Stable", "n_future": 7, "lookback": 15, "latest_level": 5.55}},
+{"_id": {"$oid": "6adc196ff23e9e768a7b76ed"}, "station_id": "MP_DHAR_MANAWAR_MANAWAR_2", "forecast": {"station_id": "MP_DHAR_MANAWAR_MANAWAR_2", "predictions": [11.43, 11.27, 11.02, 11.03, 11.01, 10.83, 10.64], "mean_category": "Critical", "trend": "\u2705 Increasing (Recharge)", "n_future": 7, "lookback": 15, "latest_level": 12.75}}
+]

@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>DWLR Realtime Demo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 18px; }
+    #stations { margin-bottom: 12px; display:grid; gap:6px; }
+    .station { padding: 8px; background:#f6f6f8; border-radius:6px }
+    #chart { max-width:900px; height:360px }
+  </style>
+</head>
+<body>
+  <h2>DWLR Realtime Demo</h2>
+  <div id="stations">Connecting…</div>
+  <canvas id="chart"></canvas>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const socket = io();
+    const stationsDiv = document.getElementById('stations');
+    const ctx = document.getElementById('chart').getContext('2d');
+
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: { labels: [], datasets: [{ label: 'gw_level_smoothed', data: [], tension: 0.25 }] },
+      options: { animation:false, scales:{ x:{display:true}, y:{beginAtZero:false} } }
+    });
+
+    function pushPoint(label, value) {
+      chart.data.labels.push(label);
+      chart.data.datasets[0].data.push(value);
+      if (chart.data.labels.length > 50) {
+        chart.data.labels.shift(); chart.data.datasets[0].data.shift();
+      }
+      chart.update();
+    }
+
+    function renderStations(list) {
+      stationsDiv.innerHTML = list.map(s => {
+        const val = s.last ? s.last.gw_level_smoothed.toFixed(3) : 'n/a';
+        return `<div id="st_${s.station_id}" class="station">${s.station_id} — ${s.name||''} — last: ${val}</div>`;
+      }).join('');
+    }
+
+    socket.on('initial', docs => {
+      renderStations(docs);
+      if (docs[0] && docs[0].last) pushPoint(new Date(docs[0].ts).toLocaleTimeString(), docs[0].last.gw_level_smoothed);
+    });
+    socket.on('latest', doc => {
+      let el = document.getElementById('st_' + doc.station_id);
+      const val = doc.last ? doc.last.gw_level_smoothed.toFixed(3) : 'n/a';
+      if (el) el.innerText = `${doc.station_id} — ${doc.name||''} — last: ${val}`;
+      else stationsDiv.insertAdjacentHTML('beforeend', `<div id="st_${doc.station_id}" class="station">${doc.station_id} — ${doc.name||''} — last: ${val}</div>`);
+      pushPoint(new Date(doc.ts).toLocaleTimeString(), doc.last ? doc.last.gw_level_smoothed : null);
+    });
+  </script>
+</body>
+</html>
