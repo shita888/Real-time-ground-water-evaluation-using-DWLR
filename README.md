@@ -1,29 +1,25 @@
 
 
-# JalStar — Groundwater Level Forecasting
+# JalDrishti — Groundwater Level Forecasting
 
 
-JalStar is a Smart India Hackathon project focused on **real-time groundwater monitoring, forecasting, and alerts** using DWLR (Digital Water Level Recorder) style data pipelines.
+JalDrishti is a Smart India Hackathon project focused on **real-time groundwater monitoring, forecasting, and alerts** using DWLR (Digital Water Level Recorder) style data pipelines.
 
 The project combines data ingestion, centralized storage, ML forecasting, and a web dashboard to support data-driven water management.
 
-## Demo Video
-
-🎥 [Watch the JalStar demo video](./demo.mp4)
-
 ## Screenshots
 
-<img src="https://github.com/user-attachments/assets/3d1e8466-142a-4073-9310-6772bbe85d74" alt="JalStar subscribe page screenshot" />
+<img src="https://github.com/user-attachments/assets/3d1e8466-142a-4073-9310-6772bbe85d74" alt="JalDrishti subscribe page screenshot" />
 
-<img src="https://github.com/user-attachments/assets/65f6c76f-9473-42c7-be12-d558d3f061f5" alt="JalStar application screenshot 2" />
+<img src="https://github.com/user-attachments/assets/65f6c76f-9473-42c7-be12-d558d3f061f5" alt="JalDrishti application screenshot 2" />
 
-<img src="https://github.com/user-attachments/assets/921f5618-0354-4ba5-935b-5c4e0c32b54c" alt="JalStar application screenshot 3" />
+<img src="https://github.com/user-attachments/assets/921f5618-0354-4ba5-935b-5c4e0c32b54c" alt="JalDrishti application screenshot 3" />
 
-<img src="https://github.com/user-attachments/assets/a5878363-3957-4642-96c8-b79dd09489aa" alt="JalStar application screenshot 4" />
+<img src="https://github.com/user-attachments/assets/a5878363-3957-4642-96c8-b79dd09489aa" alt="JalDrishti application screenshot 4" />
 
 ## Smart India Hackathon Context
 
-- SIH 2025 project: **JalStar: Groundwater Level Forecasting**
+- SIH 2025 project: **JalDrishti: Groundwater Level Forecasting**
 - Built as an end-to-end platform for groundwater resource evaluation
 - Includes realtime ingestion, time-series forecasting, and public-facing visualization
 - Project cleared internal college rounds of Smart India Hackathon
@@ -69,7 +65,7 @@ The project combines data ingestion, centralized storage, ML forecasting, and a 
 ### 1) Backend (FastAPI + ML)
 
 ```bash
-cd /home/runner/work/JalStar/JalStar/backend
+cd /home/runner/work/JalDrishti/JalDrishti/backend
 pip install -r requirements.txt
 uvicorn backend.app:app --reload --host 127.0.0.1 --port 8000
 ```
@@ -77,7 +73,7 @@ uvicorn backend.app:app --reload --host 127.0.0.1 --port 8000
 ### 2) Frontend (React + Vite)
 
 ```bash
-cd /home/runner/work/JalStar/JalStar/frontend
+cd /home/runner/work/JalDrishti/JalDrishti/frontend
 npm install
 npm run dev
 ```
@@ -85,7 +81,7 @@ npm run dev
 ### 3) Ingestion/Realtime Prototype (Optional)
 
 ```bash
-cd /home/runner/work/JalStar/JalStar/dwlr-proto
+cd /home/runner/work/JalDrishti/JalDrishti/dwlr-proto
 npm install
 npm start
 ```
