@@ -1,391 +1,299 @@
-# 💧 JalDrishti — Real-Time Groundwater Monitoring & Deep-Learning Forecasting
+ # JalDrishti — Real-Time Groundwater Monitoring & Forecasting
 
-<p align="center">
-  <img src="https://img.shields.io/badge/SIH_2025-Smart_India_Hackathon-orange?style=for-the-badge&logo=target" alt="SIH 2025" />
-  <img src="https://img.shields.io/badge/FastAPI-0.115+-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
-  <img src="https://img.shields.io/badge/React_18-TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
-  <img src="https://img.shields.io/badge/TensorFlow-LSTM_2.18-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow" />
-  <img src="https://img.shields.io/badge/MongoDB-Atlas_%26_Local-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/Vite-6.x-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-</p>
+JalDrishti is a Smart India Hackathon project focused on **groundwater monitoring, historical analysis, forecasting, and alert notifications** using DWLR (Digital Water Level Recorder) data.
 
-> **JalDrishti (जल दृष्टि)** is an end-to-end, state-scale groundwater resource evaluation, monitoring, and predictive forecasting platform engineered for **Madhya Pradesh, India**. Developed originally for the **Smart India Hackathon (SIH 2025)** under the aegis of the Ministry of Jal Shakti and Central Ground Water Board (CGWB), JalDrishti ingests telemetry from Digital Water Level Recorders (DWLR), classifies aquifer depletion stages, generates recursive 7-day water table forecasts using a trained LSTM neural network, and automates emergency alerts across email and SMS channels.
+The platform provides groundwater insights for Madhya Pradesh through interactive dashboards, station-level visualizations, district-wise analysis, and machine learning-based forecasting. It aims to support researchers, planners, and communities in making informed decisions for sustainable groundwater management.
 
----
+## Screenshots
 
-## 🎥 Walkthrough Video & Visual Showcase
+### Home Page
+The home page provides an overview of groundwater monitoring, key features, and station statistics.
 
-### 📹 Demonstration Video
-🎬 **[Watch the JalDrishti Video Walkthrough](./demo.mp4)** *(or via [GitHub Repository Video](https://github.com/shita888/Real-time-ground-water-evaluation-using-DWLR/blob/main/demo.mp4))*
+### Dashboard
+The dashboard displays groundwater statistics, nearby monitoring stations, historical groundwater levels, forecasts, and recent station updates.
 
----
+### Groundwater Station Map
+The interactive map visualizes DWLR monitoring stations across Madhya Pradesh with filters for different groundwater conditions.
 
-### 📸 Application Interface
+### User Authentication
+JalDrishti provides account creation and secure sign-in interfaces for users.
 
-| Alert Subscription & Notifications | Interactive Geospatial Station Map |
-| :---: | :---: |
-| ![Alert Subscription](https://github.com/user-attachments/assets/3d1e8466-142a-4073-9310-6772bbe85d74) | ![Geospatial Map](https://github.com/user-attachments/assets/65f6c76f-9473-42c7-be12-d558d3f061f5) |
-| **District-Level Groundwater Analytics** | **Station Telemetry & Depletion History** |
-| ![District Analytics](https://github.com/user-attachments/assets/921f5618-0354-4ba5-935b-5c4e0c32b54c) | ![Monitoring Dashboard](https://github.com/user-attachments/assets/a5878363-3957-4642-96c8-b79dd09489aa) |
+### Alert Subscription
+Users can subscribe to groundwater alerts using their preferred notification channel.
 
----
+## Smart India Hackathon Context
 
-## 🏆 Smart India Hackathon (SIH 2025) Context
+- SIH project: **JalDrishti — Groundwater Monitoring and Forecasting**
+- Focus: Real-time groundwater resource evaluation using DWLR data
+- Geographic scope: Madhya Pradesh, India
+- Objective: Support sustainable groundwater resource management
+- Application: Web-based groundwater monitoring and decision-support platform
 
-- **Problem Statement:** Real-Time Groundwater Resource Evaluation, Monitoring, and Forecasting using DWLR-style Data Pipelines.
-- **Project Domain:** Ministry of Jal Shakti / Central Ground Water Board (CGWB) & Water Resource Governance.
-- **Geographic Scope:** **55 Districts** of Madhya Pradesh across **2,453 DWLR Telemetry Stations** and **134,104+ Observations**.
-- **Recognition:** Successfully cleared internal college selection rounds for SIH 2025.
+## Core Features
 
----
+- **Groundwater Monitoring:** Monitor groundwater levels across DWLR stations.
+- **Historical Analysis:** Analyze groundwater level trends using historical observations.
+- **Future Forecasting:** Generate 7-day groundwater level forecasts using LSTM.
+- **Interactive Map:** Visualize groundwater monitoring stations across Madhya Pradesh.
+- **District Insights:** Explore district-wise groundwater conditions.
+- **Station Search:** Search stations, districts, and groundwater monitoring locations.
+- **Nearby Stations:** Find nearby monitoring stations using location-based functionality.
+- **Groundwater Classification:** Categorize stations as Safe, Semi-Critical, Critical, or Over-Exploited.
+- **Alert Subscription:** Subscribe to groundwater notifications through Email, SMS, or both.
+- **User Authentication:** Create accounts and sign in to the platform.
+- **Data Visualization:** Display historical trends and future groundwater predictions through interactive charts.
 
-## 🌟 Key Capabilities & System Features
+## Technology Stack
 
-- 📡 **Automated DWLR Telemetry Ingestion:** Continuous ingestion pipeline tracking Depth-to-Water-Level readings in meters below ground level (*m bgl*).
-- 🏷️ **CGWB-Standard Depletion Classification:** Automated categorization based on Central Ground Water Board benchmarks:
-  - 🟢 **Safe:** `< 5.0 m bgl` (Normal seasonal recharge)
-  - 🟡 **Semi-Critical:** `5.0 m` to `10.0 m bgl` (Accelerating depletion trend)
-  - 🔴 **Critical / Over-Exploited:** `> 20.0 m bgl` (Urgent replenishment advisory)
-- 🧠 **Recursive Deep-Learning LSTM Forecasting:** Trained TensorFlow/Keras LSTM model forecasting 7-day future groundwater levels with MinMax scaling.
-- 🛡️ **Zero-Hallucination Quality Gate:** Enforces minimum observation validation ($\ge 15$ valid empirical readings). Failsafe handling prevents fake dummy numbers ($0.0\text{m}$) and returns structured HTTP 422 feedback.
-- 🗺️ **Geospatial Mapping & Analytics:** Interactive Leaflet + D3.js mapping with color-coded depletion clusters across all 55 districts of Madhya Pradesh.
-- 🔔 **Intelligent Alert Dispatch:** Automated alert subscription engine supporting both Gmail SMTP (with responsive HTML confirmation emails) and SendGrid, accompanied by Twilio SMS support and a 1-hour anti-flood cooldown.
-- 👤 **Account Authentication & Profile Sync:** Complete user authentication system (`/login`, `/signup`, `/forgot-password`) that auto-fills subscription preferences and links notifications with registered profiles.
-- 🌐 **Multilingual & Responsive UI:** Unified navigation featuring **Home (`/`)**, **Dashboard (`/dashboard`)**, **Map (`/map`)**, and **About (`/about`)** with dark/light theme support.
+| Component | Technology |
+|---|---|
+| Frontend | React, TypeScript, Vite |
+| UI / Styling | Bootstrap, Tailwind CSS |
+| Backend | Python, FastAPI |
+| Machine Learning | TensorFlow, LSTM |
+| Data Processing | Pandas, NumPy, Scikit-learn |
+| Database | MongoDB Atlas |
+| Maps | Leaflet, OpenStreetMap |
+| Charts | Interactive chart visualizations |
+| Development Tools | VS Code, Git, GitHub |
 
----
+## Project Architecture
 
-## 🏗️ High-Level System Architecture
+The JalDrishti application follows a frontend-backend architecture.
 
-```mermaid
-graph TD
-    subgraph ClientBrowser ["Frontend Client: React 18 + Vite"]
-        UI_Home["Home Overview (/)"]
-        UI_Dash["Groundwater Dashboard (/dashboard)"]
-        UI_Fore["LSTM 7-Day Forecast Chart"]
-        UI_Hist["Historical Depletion Visualizer"]
-        UI_Map["Leaflet Geospatial Map (/map)"]
-        UI_Sub["Alert Subscription Center (/subscribe)"]
-        UI_Auth["User Authentication (/login, /signup)"]
-    end
+1. **Data Collection:** Groundwater observations are obtained from DWLR datasets and monitoring data sources.
+2. **Data Preprocessing:** Data is cleaned and prepared using Python and Pandas.
+3. **Database Storage:** Groundwater station information and observations are stored in the database.
+4. **Machine Learning:** LSTM models process historical water-level observations to generate forecasts.
+5. **Backend API:** FastAPI provides endpoints for groundwater history, station information, and forecasting.
+6. **Frontend Dashboard:** React displays groundwater statistics, maps, historical charts, and forecast results.
+7. **Alert System:** Users can subscribe to notifications regarding groundwater conditions.
 
-    subgraph ViteServer ["Vite Dev Server :5173"]
-        Proxy["Reverse Proxy Engine"]
-    end
-
-    subgraph BackendCore ["FastAPI Backend Service :8000"]
-        API_Router["REST API Controllers (FastAPI)"]
-        PreprocessService["Data Validation & Quality Gate"]
-        ForecastService["Recursive LSTM Prediction Engine"]
-        DBService["MongoDB Data Access Layer"]
-        EmailService["SMTP / SendGrid Dispatcher"]
-        SchedulerWorker["APScheduler Periodic Monitor"]
-    end
-
-    subgraph StorageLayer ["Data Storage & Models"]
-        subgraph MongoDB ["MongoDB Database: dwlr"]
-            Col_Stations[("stations: 2,453 stations")]
-            Col_Readings[("readings: 134,104 records")]
-            Col_Latest[("latest: station cache")]
-            Col_Forecast[("forecast: predictions")]
-        end
-        subgraph SQLite ["SQLite Database: data/app.db"]
-            Table_Users[("users: registered accounts")]
-            Table_Subscribers[("subscribers: alert recipients")]
-            Table_AlertLogs[("alert_logs: audit trail")]
-        end
-        subgraph MLStore ["Machine Learning Artifacts"]
-            LSTM_Model["groundwater_lstm.keras"]
-            Scaler_Artifact["scaler.gz"]
-        end
-    end
-
-    ClientBrowser -->|HTTP / REST| Proxy
-    Proxy -->|Proxy /api, /forecast, /history| API_Router
-    API_Router --> PreprocessService
-    PreprocessService -->|Valid Obs >= 15| ForecastService
-    ForecastService --> LSTM_Model
-    ForecastService --> Scaler_Artifact
-    PreprocessService --> DBService
-    DBService --> MongoDB
-    API_Router --> SQLite
-    API_Router --> EmailService
-    SchedulerWorker --> DBService
-    SchedulerWorker --> EmailService
-```
-
----
-
-## 📊 Dataset & State Coverage (Madhya Pradesh)
-
-Dataset compiled from the **Central Ground Water Board (CGWB)**, Ministry of Jal Shakti, and the **Madhya Pradesh Water Resources Department**:
-
-| Metric | Verified Metric Count |
-| :--- | :--- |
-| **Districts Covered** | **55 Districts** (Indore, Bhopal, Ujjain, Jabalpur, Gwalior, Sagar, Dhar, etc.) |
-| **Active DWLR Stations** | **2,453 Telemetry Stations** |
-| **Time-Series Observations** | **134,104 Logged Observations** |
-| **Clean Master Dataset** | `backend/data/mp_groundwater_clean.csv` (13.45 MB, 137,255 rows, 0 nulls) |
-| **Observed Fields** | State, District, Block, Village, Latitude, Longitude, Date, WaterLevel, Status, Trend |
-
----
-
-## 🛠️ Technology Stack
-
-| Domain | Technologies & Libraries |
-| :--- | :--- |
-| **Backend Framework** | Python 3.10+ / 3.13, FastAPI 0.115+, Uvicorn (ASGI), Pydantic v2, APScheduler |
-| **Machine Learning** | TensorFlow 2.18 / Keras (LSTM), Scikit-learn (`MinMaxScaler`), Pandas, NumPy |
-| **Primary Datastore** | MongoDB Community Server 8.0 / Atlas (Database: `dwlr`) |
-| **Metadata & Auth DB**| SQLite 3 (`data/app.db`) via SQLAlchemy 2.0 ORM (PBKDF2 SHA-256 password hashing) |
-| **Frontend Framework**| React 18, TypeScript, Vite 6, Tailwind CSS v4, Lucide React Icons |
-| **Mapping & Analytics**| Leaflet 1.9, D3.js 7.9, React-Leaflet 4.2 |
-| **Email & SMS Alerts** | Python `smtplib` (Gmail App Passwords / TLS 587 / SSL 465), SendGrid API, Twilio SMS |
-| **Ingestion Prototype**| Node.js 18+, Express, Socket.IO |
-
----
-
-## 📁 Repository Directory Structure
+## Repository Structure
 
 ```text
 JalDrishti/
-├── backend/
-│   ├── app.py                      # FastAPI application entrypoint & API routes
-│   ├── db.py                       # MongoDB connection & collection handlers
-│   ├── requirements.txt            # Python dependencies
-│   ├── .env.example                # Backend environment configuration template
-│   ├── data/
-│   │   ├── mp_groundwater_clean.csv# Master MP dataset (134,104+ observations)
-│   │   └── app.db                  # SQLite database for accounts & subscribers
-│   ├── models/
-│   │   ├── groundwater_lstm.keras  # Trained TensorFlow LSTM model (19,009 params)
-│   │   ├── scaler.gz               # Fitted MinMaxScaler artifact
-│   │   ├── user.py                 # SQLAlchemy User model (PBKDF2 auth)
-│   │   ├── subscriber.py           # Alert subscriber model
-│   │   └── alert_log.py            # Alert delivery audit logs
-│   ├── services/
-│   │   ├── forecast.py             # Recursive 7-day LSTM inference engine
-│   │   ├── preprocess.py           # Quality gate & observation sanitizer
-│   │   ├── db.py                   # MongoDB data access layer & queries
-│   │   ├── email_service.py        # SMTP / SendGrid dispatcher & HTML templates
-│   │   ├── sms_service.py          # Twilio SMS gateway dispatcher
-│   │   └── scheduler.py            # Background periodic threshold evaluator
-│   └── tests/
-│       └── test_api.py             # Pytest automated test suite
+│
 ├── frontend/
 │   ├── src/
-│   │   ├── components/             # Reusable UI components
-│   │   │   ├── GroundwaterDashboard.tsx # Overview dashboard & metrics
-│   │   │   ├── ForecastViewer.tsx       # 7-day forecast chart with 20m threshold
-│   │   │   ├── HistoryViewer.tsx        # Historical time-series visualizer
-│   │   │   ├── AlertSubscription.tsx    # Subscription center with login sync
-│   │   │   ├── home.tsx                 # Landing page & overview
-│   │   │   └── ui/                      # AppSidebar, Header, LoginPage, SignupPage
-│   │   ├── districts/
-│   │   │   └── district.tsx             # Interactive Leaflet map of MP districts
+│   │   ├── components/
 │   │   ├── pages/
-│   │   │   ├── Index.tsx                # Home page route wrapper
-│   │   │   ├── ForecastPage.tsx         # Dedicated Forecast page
-│   │   │   ├── HistoryPage.tsx          # Dedicated History page
-│   │   │   └── DistrictsDataPage.tsx    # District breakdown page
-│   │   ├── services/
-│   │   │   └── api.ts                   # Centralized API fetch handlers & types
-│   │   ├── App.tsx                      # React Router configuration
-│   │   ├── main.tsx                     # React application entrypoint
-│   │   └── index.css                    # Tailwind CSS v4 design tokens
-│   ├── package.json                     # Frontend dependencies
-│   ├── vite.config.ts                   # Vite dev server & proxy settings
-│   └── .env.example                     # Frontend environment template
-├── dwlr-proto/                          # Realtime DWLR telemetry ingestion prototype
-│   ├── server.js                        # Node.js Express & Socket.IO server
-│   └── package.json
-├── JalDrishti_Technical_Report.md       # Comprehensive technical evaluation report
-└── README.md                            # Project documentation
+│   │   ├── assets/
+│   │   └── services/
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.ts
+│
+├── backend/
+│   ├── app.py
+│   ├── models/
+│   ├── routes/
+│   ├── services/
+│   ├── data/
+│   └── requirements.txt
+│
+├── data/
+│   └── groundwater_dataset.csv
+│
+├── screenshots/
+│
+├── README.md
+└── .gitignore
 ```
 
----
+*Note: Update the directory structure according to the actual repository.*
 
-## ⚡ Quick Start & Local Setup
+## Dataset
+
+The project uses DWLR groundwater monitoring data for Madhya Pradesh.
+
+The dataset includes the following attributes:
+
+- State
+- District
+- Block
+- Village
+- Latitude
+- Longitude
+- Date
+- Water Level
+- Status
+- Year
+- Trend
+
+### Data Processing
+
+- Data cleaning and preprocessing
+- Handling duplicate observations
+- Station-level data organization
+- Historical groundwater trend analysis
+- Preparation of time-series data for LSTM forecasting
+
+## Machine Learning Model
+
+### LSTM — Long Short-Term Memory
+
+JalDrishti uses an LSTM-based time-series forecasting approach to predict future groundwater levels.
+
+The model analyzes historical groundwater observations and learns temporal patterns in water-level changes.
+
+### Forecasting Workflow
+
+1. Collect historical groundwater observations.
+2. Preprocess and normalize the dataset.
+3. Prepare time-series sequences.
+4. Train the LSTM model.
+5. Generate 7-day groundwater level predictions.
+6. Visualize the forecast through the dashboard.
+
+### Model Output
+
+- Predicted groundwater levels
+- 7-day forecast visualization
+- Groundwater trend analysis
+- Forecast-based station insights
+
+## Local Setup
 
 ### Prerequisites
-- **Python 3.10+** (Tested on Python 3.10, 3.11, 3.12, 3.13)
-- **Node.js 18+** & **npm**
-- **MongoDB** Community Server 8.0 running locally on port `27017` (or MongoDB Atlas)
 
----
+- Python 3.10+
+- Node.js 18+
+- npm
+- MongoDB Atlas account
+- Visual Studio Code
 
-### 1️⃣ Clone the Repository
+### 1. Clone the Repository
+
 ```bash
-git clone https://github.com/shita888/Real-time-ground-water-evaluation-using-DWLR.git JalDrishti
+git clone <YOUR_GITHUB_REPOSITORY_URL>
 cd JalDrishti
 ```
 
----
+### 2. Backend Setup
 
-### 2️⃣ Backend Setup (FastAPI & ML Service)
+Open a terminal:
 
-1. Open a terminal and navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-
-2. Create and activate a Python virtual environment:
-   - **Windows (PowerShell):**
-     ```powershell
-     python -m venv .venv
-     .\.venv\Scripts\Activate.ps1
-     ```
-   - **Linux / macOS:**
-     ```bash
-     python3 -m venv .venv
-     source .venv/bin/activate
-     ```
-
-3. Install backend dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Create your local environment configuration:
-   ```powershell
-   Copy-Item .env.example .env    # Windows PowerShell
-   # OR: cp .env.example .env     # Linux / macOS
-   ```
-
-5. Launch the FastAPI backend server:
-   ```bash
-   python -m uvicorn app:app --reload --host 127.0.0.1 --port 8000
-   ```
-   > 🟢 Backend running at: `http://127.0.0.1:8000`  
-   > 📖 Swagger API Documentation: `http://127.0.0.1:8000/docs`
-
----
-
-### 3️⃣ Frontend Setup (React + Vite)
-
-1. Open a new terminal and navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-
-2. Install Node packages:
-   ```bash
-   npm install
-   ```
-
-3. Start the Vite development server:
-   ```bash
-   npm run dev
-   ```
-   > 🌐 Frontend available at: `http://localhost:5173`
-
----
-
-### 4️⃣ Real-Time Telemetry Prototype (Optional)
-
-To simulate continuous DWLR telemetry ingestion:
-```bash
-cd dwlr-proto
-npm install
-npm start
-```
-
----
-
-## 🔑 Environment Configuration
-
-### Backend (`backend/.env`)
-```ini
-# Datastore Configuration
-MONGODB_URI=mongodb://127.0.0.1:27017/
-MONGODB_DB=dwlr
-DATABASE_URL=sqlite:///data/app.db
-
-# Dev Controls & Cooldown
-DEV_TRIGGER_TOKEN=dev-secret
-DISABLE_SCHEDULER=true
-ALERT_COOLDOWN_SECONDS=3600
-CRITICAL_LEVEL=15.0
-
-# Email Delivery (Gmail SMTP - Free & Recommended)
-# 1. Enable 2-Step Verification in Google Account.
-# 2. Generate a 16-character App Password at: https://myaccount.google.com/apppasswords
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your-email@gmail.com
-SMTP_PASS=xxxx xxxx xxxx xxxx
-EMAIL_FROM=your-email@gmail.com
-
-# Alternative: SendGrid API
-# SENDGRID_API_KEY=SG.xxxxxxxxxxxxxxxxxxxx
-# EMAIL_FROM=verified-sender@yourdomain.com
-```
-
-### Frontend (`frontend/.env`)
-```ini
-# Optional: OpenAI API Key for the in-app JalDrishti Chatbot assistant
-VITE_OPENAI_API_KEY=your_openai_api_key_here
-```
-
----
-
-## 📡 REST API Reference
-
-| HTTP Method | Route | Parameters | Description |
-| :--- | :--- | :--- | :--- |
-| `GET` | `/health` | None | Service health, timestamp, and MongoDB connectivity status |
-| `GET` | `/statistics` | None | Overall metrics: total, safe, critical, and semi-critical counts |
-| `GET` | `/stations` | None | Catalog of all 2,453 MP stations with geographic coordinates |
-| `GET` | `/stations/recent` | `limit: int = 8` | Returns the most recently updated telemetry stations |
-| `GET` | `/stations/nearby` | `lat, lon, limit: int = 3` | Returns nearest DWLR stations across distinct districts |
-| `GET` | `/latest/{station_id}` | `station_id` (path) | Latest water level observation for a specified station |
-| `GET` | `/history/{station_id}` | `station_id` (path), `days` | Historical time-series observations (failsafe for 0 obs) |
-| `GET` | `/forecast/{station_id}`| `station_id` (path), `n_future` | **Recursive 7-day LSTM forecast** (Requires $\ge 15$ obs, else HTTP 422) |
-| `POST` | `/api/subscribe` | JSON Body | Subscribe user to alerts & dispatch confirmation email |
-| `GET` | `/api/subscribers` | None | List registered notification subscribers |
-| `POST` | `/api/auth/signup` | `name, email, password` | Register a new user account with PBKDF2 hashing |
-| `POST` | `/api/auth/login` | `email, password` | Authenticate user and issue session token |
-| `POST` | `/api/auth/forgot-password` | `email` | Request a password reset code via email |
-| `POST` | `/api/auth/reset-password` | `email, token, new_password`| Reset account password using token |
-
----
-
-## 🧠 Machine Learning: LSTM Forecast Architecture
-
-The forecasting engine uses a specialized Keras Sequential architecture:
-- **Lookback Window:** 15 historical consecutive timesteps ($t-14, \dots, t$)
-- **Forecast Horizon:** 7 forward days ($t+1, \dots, t+7$) computed recursively
-- **Input Shape:** `(None, 15, 1)`
-- **Network Layers:**
-  1. `LSTM(64 units, activation='tanh', return_sequences=False)` — 16,896 parameters
-  2. `Dense(32 units, activation='relu')` — 2,080 parameters
-  3. `Dense(1 unit, activation='linear')` — 33 parameters
-- **Total Parameters:** 19,009 trainable parameters
-- **Scaling Pipeline:** Normalized with `MinMaxScaler` fitted on empirical range $[0.0\text{m}, 199.75\text{m}]$. Predictions are inverse-transformed to physical meters below ground level (*m bgl*).
-- **Quality Gate:** If a station has fewer than 15 valid readings, forecasting rejects the request with HTTP 422 showing available and required counts, preventing hallucinated predictions.
-
----
-
-## 🧪 Testing & Verification
-
-Run the automated backend test suite with Pytest:
 ```bash
 cd backend
-pytest tests/
 ```
 
-Verify frontend production compilation:
+Create a virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+Activate the virtual environment on Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the FastAPI backend:
+
+```bash
+python -m uvicorn app:app --reload --host 127.0.0.1 --port 8000
+```
+
+Backend API:
+
+```text
+http://127.0.0.1:8000
+```
+
+API documentation:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+### 3. Frontend Setup
+
+Open another terminal:
+
 ```bash
 cd frontend
-npm run build
 ```
 
----
+Install dependencies:
 
-## 🤝 Project Information
+```bash
+npm install
+```
 
-- **Project:** JalDrishti (जल दृष्टि) — SIH 2025 / Major Project G3
-- **Objective:** Real-Time Groundwater Telemetry Evaluation & LSTM Forecasting
-- **GitHub Repository:** [https://github.com/shita888/Real-time-ground-water-evaluation-using-DWLR](https://github.com/shita888/Real-time-ground-water-evaluation-using-DWLR)
-- **License:** Open Source for educational, research, and public water governance initiatives.
+Start the frontend:
+
+```bash
+npm run dev
+```
+
+Open the application in your browser using the URL displayed by Vite.
+
+## API Highlights
+
+The backend provides APIs for groundwater monitoring and forecasting.
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/health` | Check backend health |
+| GET | `/stations` | Retrieve groundwater station information |
+| GET | `/history/{station_id}` | Retrieve historical groundwater observations |
+| GET | `/forecast/{station_id}` | Generate groundwater forecasts |
+| GET | `/latest/{station_id}` | Retrieve latest station water level |
+| POST | `/api/subscribe` | Register alert subscription |
+
+*Note: Verify the API routes against the actual FastAPI implementation.*
+
+## Application Modules
+
+### 1. Home Page
+Provides an introduction to JalDrishti and its groundwater monitoring capabilities.
+
+### 2. Dashboard
+Displays groundwater statistics, historical trends, forecast data, and station updates.
+
+### 3. Interactive Map
+Shows monitoring station locations with groundwater status filters.
+
+### 4. Historical Analysis
+Visualizes past groundwater level observations for selected stations.
+
+### 5. Forecast Module
+Predicts groundwater levels for the next seven days using LSTM.
+
+### 6. Authentication Module
+Provides user registration and sign-in functionality.
+
+### 7. Alert Subscription Module
+Allows users to subscribe to groundwater notifications using Email, SMS, or both.
+
+## Future Scope
+
+- Integration with live DWLR sensor data streams
+- Improved forecasting accuracy using advanced time-series models
+- Mobile application for groundwater monitoring
+- Automated SMS and email alert delivery
+- Rainfall and recharge estimation integration
+- District-wise groundwater risk analysis
+- Advanced decision-support tools for water resource management
+
+## Impact
+
+JalDrishti aims to provide accessible groundwater information to researchers, planners, and communities.
+
+By combining historical groundwater data, machine learning forecasts, and interactive visualization, the platform supports sustainable groundwater management and informed decision-making.
+
+## Contributors
+
+Developed as part of the Smart India Hackathon project.
+
+## License
+
+This project is intended for academic and research purposes. Add an appropriate license before public distribution.
